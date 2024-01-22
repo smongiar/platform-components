@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://github.com/janus-api-idp/demo-systems.git"
+    repoURL: "https://github.com/contract-first-idp/demo-systems.git"
     path: argoapps
     targetRevision: main
   destination:

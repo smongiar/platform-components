@@ -6,13 +6,13 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/janus-api-idp/platform-components.git
+    repoURL: https://github.com/contract-first-idp/platform-components.git
     path: argocd/platform-applications
     targetRevision: main
     helm:
       parameters:
         - name: gitOrg
-          value: https://github.com/janus-api-idp
+          value: https://github.com/contract-first-idp
         - name: gitRef
           value: main
         - name: clusterBaseUrl

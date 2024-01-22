@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://github.com/janus-api-idp/spectral-image.git"
+    repoURL: "https://github.com/contract-first-idp/spectral-image.git"
     path: .tekton
     targetRevision: main
   destination:

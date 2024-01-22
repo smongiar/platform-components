@@ -1,6 +1,6 @@
 # See argocd/platform-root.yaml for overrides
 
-gitOrg: https://github.com/janus-api-idp
+gitOrg: https://github.com/contract-first-idp
 gitRef: main
 clusterBaseUrl: example.cluster.com
 
