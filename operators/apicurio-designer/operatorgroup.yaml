@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: Apicurito.v1alpha1.apicur.io
+  name: apicurio-designer
+  namespace: apicurio-designer
+spec:
+  targetNamespaces:
+  - apicurio-designer
