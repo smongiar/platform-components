@@ -4,6 +4,7 @@ metadata:
   labels:
     operators.coreos.com/apicurito.apicurio-designer: ""
   name: apicurito
+  namespace: apicurio-designer
 spec:
   channel: latest
   installPlanApproval: Automatic
