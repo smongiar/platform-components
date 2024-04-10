@@ -4,4 +4,5 @@ keycloak:
     name: backstage
     displayName: backstage
   backstageClient:
+    id: backstage
     secret: my-secret

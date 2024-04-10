@@ -1,1 +1,7 @@
 clusterRouterDomain: example.cluster.com
+auth:
+  sessionSecret: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
+  keycloakUrl: https://keycloak.example.com
+  keycloakRealm: backstage
+  clientId: backstage
+  clientSecret: my-secret

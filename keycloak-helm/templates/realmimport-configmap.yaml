@@ -623,14 +623,14 @@ data:
           "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
         }, {
           "id" : "3289691a-fa61-4475-ac71-f7446301a8f8",
-          "clientId" : "backstage",
+          "clientId" : "{{ .Values.keycloak.backstageClient.id }}",
           "surrogateAuthRequired" : false,
           "enabled" : true,
           "alwaysDisplayInConsole" : false,
           "clientAuthenticatorType" : "client-secret",
-          "secret" : "CjrBujp80h6lWt7PEesM4tklZaqTfPal",
-          "redirectUris" : [ "https://backstage-developer-hub.apps.{{ .Values.clusterBaseUrl }}/oauth2/callback" ],
-          "webOrigins" : [ "https://backstage-developer-hub.apps.{{ .Values.clusterBaseUrl }}" ],
+          "secret" : "{{ .Values.keycloak.backstageClient.secret }}",
+          "redirectUris" : [ "https://backstage-backstage-developer-hub.apps.{{ .Values.clusterBaseUrl }}/api/auth/oidc/handler/frame" ],
+          "webOrigins" : [ "https://backstage-backstage-developer-hub.apps.{{ .Values.clusterBaseUrl }}" ],
           "notBefore" : 0,
           "bearerOnly" : false,
           "consentRequired" : false,

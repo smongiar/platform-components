@@ -15,6 +15,16 @@ spec:
       parameters:
         - name: "clusterRouterDomain"
           value: "apps.{{ .Values.clusterBaseUrl }}"
+        - name: "auth.sessionSecret"
+          value: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
+        - name: "auth.keycloakUrl"
+          value: "https://keycloak-keycloak.apps.{{ .Values.clusterBaseUrl }}"
+        - name: "auth.keycloakRealm"
+          value: backstage
+        - name: "auth.clientId"
+          value: backstage
+        - name: "auth.clientSecret"
+          value: "my-secret"
   destination:
     server: https://kubernetes.default.svc
     namespace: developer-hub
