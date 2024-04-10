@@ -1,22 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: backstage-db
+  name: backstage
   namespace: openshift-gitops
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   project: default
   source:
     repoURL: "{{ .Values.gitOrg }}/platform-components.git"
-    path: postgresql-helm
+    path: developer-hub-helm
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
-        - name: "global.postgresql.auth.postgresPassword"
-          value: "{{ .Values.backstage.db.adminPassword }}"
-        - name: "tls.certificatesSecret"
-          value: "backstage-db-postgresql-tls"
+        - name: "clusterRouterDomain"
+          value: "apps.{{ .Values.clusterBaseUrl }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: developer-hub

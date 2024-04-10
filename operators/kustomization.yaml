@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - apicurio-designer
   - cert-manager
-  - openshift-pipelines
+  - developer-hub
   - keycloak
   - microcks
+  - openshift-pipelines
