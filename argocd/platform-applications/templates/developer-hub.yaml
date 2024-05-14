@@ -14,17 +14,19 @@ spec:
     helm:
       parameters:
         - name: "clusterRouterDomain"
-          value: "apps.{{ .Values.clusterBaseUrl }}"
+          value: "{{ .Values.clusterRouterDomain }}"
         - name: "auth.sessionSecret"
-          value: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
+          value: "{{ .Values.authClientSecret }}"
         - name: "auth.keycloakUrl"
-          value: "https://keycloak-keycloak.apps.{{ .Values.clusterBaseUrl }}"
+          value: "https://keycloak-keycloak.{{ .Values.clusterRouterDomain }}"
         - name: "auth.keycloakRealm"
           value: backstage
         - name: "auth.clientId"
           value: backstage
         - name: "auth.clientSecret"
-          value: "my-secret"
+          value: "{{ .Values.authClientSecret }}"
+        - name: "git.token"
+          value: "{{ .Values.gitToken }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: developer-hub
@@ -37,7 +39,7 @@ spec:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
     retry:
-      limit: 0
+      limit: 10
       backoff:
         duration: 5s
         factor: 2

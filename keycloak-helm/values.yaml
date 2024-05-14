@@ -1,4 +1,4 @@
-clusterBaseUrl: example.cluster.com
+clusterRouterDomain: apps.example.cluster.com
 keycloak:
   backstageRealm:
     name: backstage

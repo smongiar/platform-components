@@ -1,3 +1,4 @@
+argocd/platform-root.yaml
 backstage-helm/charts/
 backstage-helm/Chart.lock
 microcks-helm/charts/

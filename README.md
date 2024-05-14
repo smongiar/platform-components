@@ -2,21 +2,51 @@
 
 GitOps manifest for an Internal Developer Platform built on OpenShift
 
-## Bootstrapping
+## Bootstrapping OpenShift GitOps
 
-1. Provision OpenShift GitOps
+1. Provision OpenShift GitOps operator:
 
-   `oc apply -k argocd/bootstrap`
+   `oc apply -k argocd/bootstrap/operator`
 
-1. Edit `argocd/platform-root.yaml` and customize the configuration (see [Configuration Guide](#configuration-guide))
+   Note: You may need to repeat the above command depending on namespace creation timing.
 
-1. Provision the root ArgoCD Application
+1. Once the OpenShift GitOps operator is installed, confgure the platform ArgoCD instance:
+
+   `oc apply -k argocd/bootstrap/instance`
+
+1. When all pods in the `openshift-gitops` namespace are ready, use the URL resolved by the ArgoCD Route to open the user interface and verify that you can log in.
+
+   Note: By default, only the OpenShift user called `admin` has full ArgoCD privileges. You can adjust the list of user that should have full ArgoCD privileges on the cluster by editing `argocd/bootstrap/instance/gitops-admins-group.yaml`.
+
+1. Copy the file `argocd/platform-root.example.yaml` to `argocd/platform-root.yaml` and customize the configuration. (see [Configuration Guide](#configuration-guide)) 
+
+   Note: Since you will potentially configure sensitive values in `argocd/platform-root.yaml` like a Git token, etc., it is included in `.gitignore` so sensitive values are not accidentally pushed to the remote.
+
+1. Provision the root ArgoCD Application:
 
    `oc apply -f argocd/platform-root.yaml`
+
+1. In the ArgoCD UI, you will see a set of Applications begin to sync. Some of them might fail at first, potentially causing a cascade, so you may need to re-sync several times when intially provisioning the platform components.
 
 ## Configuration Guide
 
 Below are the critical configuration parameters that require user-provided values.
+
+### Cluster Router Domain
+
+Several platform component charts need to know the base domain of the OpenShift Router. (This demo assumes wildcard DNS.)
+
+Example:
+
+```yaml
+  source:
+    ...
+    helm:
+      parameters:
+        - name: clusterRouterDomain
+          value: apps.cluster-xxxxx.dynamic.redhatworkshops.io
+```
+
 
 ### GitOps Source
 
@@ -35,22 +65,7 @@ Example:
           value: some-feature
 ```
 
-### Cluster Base URL
-
-Several platform component charts need to know the base domain of the OpenShift router. Typically, this includes everything after `*.apps.` for any given OpenShift Route host, assuming a wildcard domain is in use.
-
-Example:
-
-```yaml
-  source:
-    ...
-    helm:
-      parameters:
-        - name: clusterBaseUrl
-          value: cluster-xxxxx.xxxxx.sandbox0000.opentlc.com
-```
-
-### Backstage GitHub Access Token
+### Backstage Git Token (GitHub Configuration)
 
 In order to read GitHub URLs, Backstage needs an GitHub access token provided. An access token can be generated using the GitHub UI under `Settings -> Developer Settings -> Personal Access Tokens`.
 
@@ -61,24 +76,28 @@ Example:
     ...
     helm:
       parameters:
-        - name: "backstage.githubToken"
+        - name: "gitToken"
           value: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-### RH SSO Authentication
+## Demo Guide
 
-This setup is configured for RH SSO authentication.  The following users and groups will be created and can be used to login.  All have the password of `letmein`.  The keycloak org data sync is enabled and should sync the users and groups in backstage.
+### User Authentication to the Developer Hub instance
 
-#### Users
+This setup is configured for RH SSO authentication.  The following users and groups will be created and can be used to login.   Keycloak user and group entity discovery is enabled and should sync the users and groups in backstage.
 
-- user-dev-1
-- user-dev-2
-- user-ops-1
-- user-ops-2
-- backstage-admin
+Groups:
 
-#### Groups
+- `backstage-admins`
+- `operators`
+- `developers`
 
-- Developers
-- Operators
-- backstage-admins
+Users:
+
+- `backstage-admin`
+- `user-ops-1`
+- `user-ops-2`
+- `user-dev-1`
+- `user-dev-2`
+
+All users have an intial password set to: `letmein` 

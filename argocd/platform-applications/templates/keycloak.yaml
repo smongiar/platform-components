@@ -13,10 +13,10 @@ spec:
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
-        - name: clusterBaseUrl
-          value: "{{ .Values.clusterBaseUrl }}"
+        - name: clusterRouterDomain
+          value: "{{ .Values.clusterRouterDomain }}"
         - name: "keycloak.backstageClient.secret"
-          value: "{{ .Values.keycloak.backstageClient.secret }}"
+          value: "{{ .Values.authClientSecret }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
@@ -29,7 +29,7 @@ spec:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
     retry:
-      limit: 0
+      limit: 10
       backoff:
         duration: 5s
         factor: 2

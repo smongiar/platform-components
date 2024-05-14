@@ -11,18 +11,18 @@ spec:
     targetRevision: main
     helm:
       parameters:
+        - name: clusterRouterDomain
+          value: apps.cluster-xxxxx.dynamic.redhatworkshops.io
         - name: gitOrg
           value: https://github.com/contract-first-idp
         - name: gitRef
           value: main
-        - name: clusterBaseUrl
-          value: cluster-xxxxx.xxxxx.sandbox0000.opentlc.com
-        - name: "backstage.githubToken"
-          value: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        - name: "backstage.db.adminPassword"
-          value: backstage-postgres-admin-passwd
-        - name: "keycloak.backstageClient.secret"
+        - name: gitToken
+          value: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        - name: authClientSecret
           value: CjrBujp80h6lWt7PEesM4tklZaqTfPal
+        - name: authSessionSecret
+          value: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
   destination:
     server: https://kubernetes.default.svc
     namespace: default
@@ -34,7 +34,7 @@ spec:
       - RespectIgnoreDifferences=true
       - ApplyOutOfSyncOnly=true       
     retry:
-      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      limit: 10 # number of failed sync attempt retries; unlimited number of attempts if less than 0
       backoff:
         duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
         factor: 2 # a factor to multiply the base duration after each failed retry
