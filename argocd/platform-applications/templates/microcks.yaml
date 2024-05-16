@@ -14,9 +14,9 @@ spec:
     helm:
       parameters:
         - name: "microcks.url"
-          value: "microcks-microcks.apps.{{ .Values.clusterBaseUrl }}"
+          value: "microcks-microcks.{{ .Values.clusterRouterDomain }}"
         - name: "keycloak.url"
-          value: "keycloak-keycloak.apps.{{ .Values.clusterBaseUrl }}/auth"
+          value: "keycloak-keycloak.{{ .Values.clusterRouterDomain }}/auth"
   destination:
     server: https://kubernetes.default.svc
     namespace: microcks
@@ -29,7 +29,7 @@ spec:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
     retry:
-      limit: 0
+      limit: 10
       backoff:
         duration: 5s
         factor: 2

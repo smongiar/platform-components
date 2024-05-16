@@ -2,7 +2,7 @@
 
 gitOrg: https://github.com/contract-first-idp
 gitRef: main
-clusterBaseUrl: example.cluster.com
+clusterRouterDomain: example.cluster.com
 
 backstage:
   githubToken: replaceme

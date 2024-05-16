@@ -9,16 +9,24 @@ spec:
   project: default
   source:
     repoURL: "{{ .Values.gitOrg }}/platform-components.git"
-    path: backstage-helm
+    path: developer-hub-helm
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
-        - name: "global.clusterRouterBase"
-          value: "apps.{{ .Values.clusterBaseUrl }}"
-        - name: "github.token"
-          value: "{{ .Values.backstage.githubToken }}"
-        - name: "global.keycloak.backstageClient.secret"
-          value: "{{ .Values.keycloak.backstageClient.secret }}"
+        - name: "clusterRouterDomain"
+          value: "{{ .Values.clusterRouterDomain }}"
+        - name: "auth.sessionSecret"
+          value: "{{ .Values.authClientSecret }}"
+        - name: "auth.keycloakUrl"
+          value: "https://keycloak-keycloak.{{ .Values.clusterRouterDomain }}"
+        - name: "auth.keycloakRealm"
+          value: backstage
+        - name: "auth.clientId"
+          value: backstage
+        - name: "auth.clientSecret"
+          value: "{{ .Values.authClientSecret }}"
+        - name: "git.token"
+          value: "{{ .Values.gitToken }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: developer-hub
@@ -31,7 +39,7 @@ spec:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
     retry:
-      limit: 0
+      limit: 10
       backoff:
         duration: 5s
         factor: 2

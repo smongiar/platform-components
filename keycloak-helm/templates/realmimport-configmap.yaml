@@ -336,16 +336,16 @@ data:
         },
         "groups" : [ {
           "id" : "eaf7bc05-c311-434f-bcc2-78cad92119af",
-          "name" : "Developers",
-          "path" : "/Developers",
+          "name" : "developers",
+          "path" : "/developers",
           "attributes" : { },
           "realmRoles" : [ ],
           "clientRoles" : { },
           "subGroups" : [ ]
         }, {
           "id" : "9612e919-f194-4bca-b4f6-7fd6df8d72ed",
-          "name" : "Operators",
-          "path" : "/Operators",
+          "name" : "operators",
+          "path" : "/operators",
           "attributes" : { },
           "realmRoles" : [ ],
           "clientRoles" : { },
@@ -454,7 +454,7 @@ data:
           "disableableCredentialTypes" : [ ],
           "requiredActions" : [ ],
           "notBefore" : 0,
-          "groups" : [ "/Developers" ]
+          "groups" : [ "/developers" ]
         }, {
           "id" : "aef761a4-895d-4cbf-ada7-ea0006b13bb0",
           "createdTimestamp" : 1698268867415,
@@ -475,7 +475,7 @@ data:
           "disableableCredentialTypes" : [ ],
           "requiredActions" : [ ],
           "notBefore" : 0,
-          "groups" : [ "/Developers" ]
+          "groups" : [ "/developers" ]
         }, {
           "id" : "3e676871-611f-40ae-9918-d824bf587316",
           "createdTimestamp" : 1698268867144,
@@ -496,7 +496,7 @@ data:
           "disableableCredentialTypes" : [ ],
           "requiredActions" : [ ],
           "notBefore" : 0,
-          "groups" : [ "/Operators" ]
+          "groups" : [ "/operators" ]
         }, {
           "id" : "76b4ecfd-134e-44a5-ab1f-28a877ff5b2b",
           "createdTimestamp" : 1698268867046,
@@ -517,7 +517,7 @@ data:
           "disableableCredentialTypes" : [ ],
           "requiredActions" : [ ],
           "notBefore" : 0,
-          "groups" : [ "/Operators" ]
+          "groups" : [ "/operators" ]
         } ],
         "scopeMappings" : [ {
           "clientScope" : "offline_access",
@@ -623,14 +623,14 @@ data:
           "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
         }, {
           "id" : "3289691a-fa61-4475-ac71-f7446301a8f8",
-          "clientId" : "backstage",
+          "clientId" : "{{ .Values.keycloak.backstageClient.id }}",
           "surrogateAuthRequired" : false,
           "enabled" : true,
           "alwaysDisplayInConsole" : false,
           "clientAuthenticatorType" : "client-secret",
-          "secret" : "CjrBujp80h6lWt7PEesM4tklZaqTfPal",
-          "redirectUris" : [ "https://backstage-developer-hub.apps.{{ .Values.clusterBaseUrl }}/oauth2/callback" ],
-          "webOrigins" : [ "https://backstage-developer-hub.apps.{{ .Values.clusterBaseUrl }}" ],
+          "secret" : "{{ .Values.keycloak.backstageClient.secret }}",
+          "redirectUris" : [ "https://backstage-backstage-developer-hub.{{ .Values.clusterRouterDomain }}/api/auth/oidc/handler/frame" ],
+          "webOrigins" : [ "https://backstage-backstage-developer-hub.{{ .Values.clusterRouterDomain }}" ],
           "notBefore" : 0,
           "bearerOnly" : false,
           "consentRequired" : false,
@@ -2121,7 +2121,7 @@ data:
             "enabled": true,
             "publicClient": true,
             "redirectUris": [
-              "https://microcks-microcks.apps.{{ .Values.clusterBaseUrl }}/*"
+              "https://microcks-microcks.{{ .Values.clusterRouterDomain }}/*"
             ],
             "webOrigins": [
               "+"
