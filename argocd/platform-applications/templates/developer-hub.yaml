@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "{{ .Values.gitOrg }}/platform-components.git"
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
     path: charts/developer-hub
     targetRevision: "{{ .Values.gitRef }}"
     helm:

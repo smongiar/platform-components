@@ -13,8 +13,10 @@ spec:
       parameters:
         - name: clusterRouterDomain
           value: apps.cluster-xxxxx.dynamic.redhatworkshops.io
+        - name: gitHost
+          value: https://github.com
         - name: gitOrg
-          value: https://github.com/contract-first-idp
+          value: contract-first-idp
         - name: gitRef
           value: main
         - name: gitToken

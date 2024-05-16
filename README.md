@@ -59,10 +59,13 @@ Example:
     ...
     helm:
       parameters:
+        - name: gitHost
+          value: https://github.com
         - name: gitOrg
-          value: https://github.com/ghuser01
+          value: ghuser01
         - name: gitRef
           value: some-feature
+
 ```
 
 ### Backstage Git Token (GitHub Configuration)
