@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: "{{ .Values.gitOrg }}/platform-components.git"
-    path: mongodb-helm
+    path: charts/mongodb
     targetRevision: "{{ .Values.gitRef }}"
   destination:
     server: https://kubernetes.default.svc
