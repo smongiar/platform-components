@@ -1,0 +1,8 @@
+kind: Apicurito
+apiVersion: apicur.io/v1alpha1
+metadata:
+  labels:
+    app: api-studio
+  name: api-studio
+spec:
+  size: 1
