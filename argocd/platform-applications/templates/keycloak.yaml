@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: "{{ .Values.gitOrg }}/platform-components.git"
-    path: keycloak-helm
+    path: charts/keycloak
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:

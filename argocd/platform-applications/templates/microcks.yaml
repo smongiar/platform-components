@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: "{{ .Values.gitOrg }}/platform-components.git"
-    path: microcks-helm
+    path: charts/microcks
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
