@@ -6,12 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/spectral-image.git"
-    path: .tekton
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
+    path: charts/spectral
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: spectral-ci
   syncPolicy:
     automated: 
       prune: true
