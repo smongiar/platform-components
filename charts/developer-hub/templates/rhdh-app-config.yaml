@@ -58,7 +58,7 @@ data:
               initialDelay: { seconds: 15 }
         github:
           systems:
-            organization: 'contract-first-idp' # string
+            organization: '{{ .Values.git.org }}' # string
             catalogPath: '/systems/*.yaml' # string
             filters:
               branch: 'main' # string
@@ -68,7 +68,7 @@ data:
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
           systemEntities:
-            organization: 'contract-first-idp' # string
+            organization: '{{ .Values.git.org }}' # string
             catalogPath: '/catalog-info.yaml' # string
             filters:
               branch: 'master' # string

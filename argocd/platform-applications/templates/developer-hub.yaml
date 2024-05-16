@@ -25,6 +25,8 @@ spec:
           value: backstage
         - name: "auth.clientSecret"
           value: "{{ .Values.authClientSecret }}"
+        - name: "git.org"
+          value: "{{ .Values.gitOrg }}"
         - name: "git.token"
           value: "{{ .Values.gitToken }}"
   destination:
