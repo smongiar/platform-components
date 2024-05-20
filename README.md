@@ -24,7 +24,7 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
 
 1. Provision the root ArgoCD Application:
 
-   `oc apply -f argocd/platform-root.yaml`
+   `oc apply -f argocd/platform-root.yaml -n openshift-gitops`
 
 1. In the ArgoCD UI, you will see a set of Applications begin to sync. Some of them might fail at first, potentially causing a cascade, so you may need to re-sync several times when intially provisioning the platform components.
 
