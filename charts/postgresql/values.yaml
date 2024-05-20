@@ -57,7 +57,7 @@ nameOverride: ""
 fullnameOverride: ""
 ## @param clusterDomain Kubernetes Cluster Domain
 ##
-clusterDomain: cluster.local
+clusterDomain: apps.developer-hub.fuse.integration-qe.com
 ## @param extraDeploy Array of extra objects to deploy with the release (evaluated as a template)
 ##
 extraDeploy: []

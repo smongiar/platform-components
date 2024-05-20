@@ -5,23 +5,49 @@ metadata:
 data:
   app-config-rhdh.yaml: |
     app:
-      title: Contract-First IDP
+      title: Fuse Next Developer Hub
       baseUrl: "https://backstage-backstage-developer-hub.{{ .Values.clusterRouterDomain }}"
     
+    permission:
+      enabled: true
+    
+    integrations:
+      gitlab:
+      - apiBaseUrl: https://gitlab.cee.redhat.com/api/v4
+        baseUrl: https://gitlab.cee.redhat.com/
+        host: gitlab.cee.redhat.com
+        token: ${GITLAB_TOKEN}
+
     backend:
       auth:
         keys:
           - secret: ${BACKEND_SECRET}
       baseUrl: "https://backstage-backstage-developer-hub.{{ .Values.clusterRouterDomain }}"
+      csp:
+        connect-src: ["'self'", 'http:', 'https:']
+        default-src: ["'self'", 'http:', 'https:']
       cors:
         origin: "https://backstage-backstage-developer-hub.{{ .Values.clusterRouterDomain }}"
-
+        methods: [GET, POST, PUT, DELETE]
+        credentials: true
+        headers: X-Requested-With
+        Access-Control-Allow-Origin: '*'
+      reading:
+        allow:
+          - host: cee.redhat.com
+          - host: redhat.com
+          - host: api.gitlab.cee.redhat.com
+          - host: gitlab.cee.redhat.com
+          - host: "*.{{ .Values.clusterRouterDomain }}"
+    
+    
     signInPage: oidc
 
     auth:
       session:
         secret: {{ .Values.auth.sessionSecret }}
       environment: production
+      allowGuestAccess: false
       providers:
         oidc:
           production:
@@ -29,11 +55,31 @@ data:
             clientSecret: ${KEYCLOAK_CLIENT_SECRET}
             metadataUrl: ${KEYCLOAK_BASE_URL}/auth/realms/${KEYCLOAK_REALM}/.well-known/openid-configuration
             prompt: auto
+    
+        gitlab:
+          production:
+            authEnv: production
+            clientId: ${GITLAB_CLIENT_ID}
+            clientSecret: ${GITLAB_SECRET}
+            audience: https://gitlab.cee.redhat.com
+            signIn:
+              resolvers:
+                - resolver: emailMatchingUserEntityProfileEmail
+                - resolver: emailLocalPartMatchingUserEntityName
+                - resolver: usernameMatchingUserEntityName
 
-    integrations:
-      github:
-        - host: github.com
-          token: ${GIT_TOKEN}
+    enabled:
+      oidc: true
+      gitlab: true
+
+    #proxy:
+    #  endpoints:
+    #    '/gitlab/api':
+    #      target: https://gitlab.cee.redhat.com/api/v4
+    #      allowedHeaders: ['Authorization', 'Content-Type']
+    #      headers:
+    #        Accept: application/json 
+    #        Content-Type: application/json
 
     catalog:
       import:
@@ -42,8 +88,11 @@ data:
       rules:
         - allow: [Component, System, Group, Resource, Location, Template, API]
       locations:
-        - type: url
-          target: https://github.com/contract-first-idp/software-templates/blob/main/template-index.yaml
+        - rules:
+          - allow:
+            - Template
+          target: https://gitlab.cee.redhat.com/jboss-fuse-qe/developer-hub/software-templates/blob/master/template-index.yaml
+          type: url
       providers:
         keycloakOrg:
           production:
@@ -56,19 +105,26 @@ data:
               frequency: { minutes: 1 }
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
-        github:
+        gitlab:
+          selfHosted:
+            host: gitlab.cee.redhat.com
+            schedule:
+              frequency:
+                seconds: 10
+              timeout:
+                seconds: 60
           systems:
-            organization: '{{ .Values.git.org }}' # string
+            organization: 'jboss-fuse-qe' # string
             catalogPath: '/systems/*.yaml' # string
             filters:
               branch: 'main' # string
-              repository: 'demo-systems' # Regex
+              repository: '.*demo-systems' # Regex
             schedule: # optional
               frequency: { minutes: 1 }
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
           systemEntities:
-            organization: '{{ .Values.git.org }}' # string
+            organization: 'jboss-fuse-qe' # string
             catalogPath: '/catalog-info.yaml' # string
             filters:
               branch: 'master' # string

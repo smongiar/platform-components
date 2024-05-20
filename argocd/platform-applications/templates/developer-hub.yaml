@@ -29,6 +29,17 @@ spec:
           value: "{{ .Values.gitOrg }}"
         - name: "git.token"
           value: "{{ .Values.gitToken }}"
+        - name: "git.clientId"
+          value: "{{ .Values.githubClientId }}"
+        - name: "git.secret"
+          value: "{{ .Values.githubSecret }}"
+        - name: "gitlab.token"
+          value: "{{ .Values.gitlabToken }}"
+        - name: "gitlab.clientId"
+          value: "{{ .Values.gitlabClientId }}"
+        - name: "gitlab.secret"
+          value: "{{ .Values.gitlabSecret }}"
+
   destination:
     server: https://kubernetes.default.svc
     namespace: developer-hub

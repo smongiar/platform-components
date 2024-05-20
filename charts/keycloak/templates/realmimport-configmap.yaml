@@ -358,7 +358,16 @@ data:
           "realmRoles" : [ ],
           "clientRoles" : { },
           "subGroups" : [ ]
-        } ],
+        }, {
+          "id": "1ac11f57-8b66-42df-a81f-e508803f5a5c",
+          "name": "fuse-qe-automation",
+          "path": "/fuse-qe-automation",
+          "attributes": {},
+          "realmRoles": [],
+          "clientRoles": {},
+          "subGroups": []
+          } 
+        ],
         "defaultRole" : {
           "id" : "c5b982bf-1d6e-42fc-8274-634d2db43172",
           "name" : "default-roles-backstage",
@@ -418,6 +427,72 @@ data:
           "realmRoles" : [ "default-roles-backstage" ],
           "notBefore" : 0,
           "groups" : [ "/backstage-admins" ]
+        }, {
+          "id" : "0df5290d-8b0f-49bd-0000-060818b0f7aa",
+          "createdTimestamp" : 1698325488983,
+          "username" : "smongiar",
+          "enabled" : true,
+          "totp" : false,
+          "emailVerified" : true,
+          "firstName" : "Salvatore",
+          "lastName" : "Mongiardo",
+          "email" : "smongiar@redhat.com",
+          "credentials" : [ {
+            "id" : "4ad7e508-ebcd-46e4-0000-e45a457cb7d8",
+            "type" : "password",
+            "createdDate" : 1698325499299,
+            "secretData" : "{\"value\":\"zuFzxuGzEMe/eyuPjMvwrxlrwuYvW+XKTSVKxQl4aGh7H5WVk9/7BcykQBb5VyLHBdgJ6/Q1A9Y8KJQmlfm9jA==\",\"salt\":\"jHu2jUgOgVMsCT0zH8mxPA==\",\"additionalParameters\":{}}",
+            "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+          } ],
+          "disableableCredentialTypes" : [ ],
+          "requiredActions" : [ ],
+          "realmRoles" : [ "default-roles-backstage" ],
+          "notBefore" : 0,
+          "groups" : [ "/backstage-admins" ]
+        }, {
+          "id" : "0df5290d-8b0f-49bd-0000-060818b0f7aa",
+          "createdTimestamp" : 1698325488983,
+          "username" : "smongiar",
+          "enabled" : true,
+          "totp" : false,
+          "emailVerified" : true,
+          "firstName" : "Salvatore",
+          "lastName" : "Mongiardo",
+          "email" : "smongiar@redhat.com",
+          "credentials" : [ {
+            "id" : "4ad7e508-ebcd-46e4-0000-e45a457cb7d8",
+            "type" : "password",
+            "createdDate" : 1698325499299,
+            "secretData" : "{\"value\":\"zuFzxuGzEMe/eyuPjMvwrxlrwuYvW+XKTSVKxQl4aGh7H5WVk9/7BcykQBb5VyLHBdgJ6/Q1A9Y8KJQmlfm9jA==\",\"salt\":\"jHu2jUgOgVMsCT0zH8mxPA==\",\"additionalParameters\":{}}",
+            "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+          } ],
+          "disableableCredentialTypes" : [ ],
+          "requiredActions" : [ ],
+          "realmRoles" : [ "default-roles-backstage" ],
+          "notBefore" : 0,
+          "groups" : [ "/backstage-admins", "/fuse-qe-automation" ]
+        }, {
+          "id" : "0df5290d-8b0f-49bd-1111-060818b0f7aa",
+          "createdTimestamp" : 1698325488983,
+          "username" : "fuse-qe-automation",
+          "enabled" : true,
+          "totp" : false,
+          "emailVerified" : true,
+          "firstName" : "JBoss",
+          "lastName" : "Fuse",
+          "email" : "fuse-qe-automation@redhat.com",
+          "credentials" : [ {
+            "id" : "4ad7e508-ebcd-46e4-1111-e45a457cb7d8",
+            "type" : "password",
+            "createdDate" : 1698325499299,
+            "secretData" : "{\"value\":\"zuFzxuGzEMe/eyuPjMvwrxlrwuYvW+XKTSVKxQl4aGh7H5WVk9/7BcykQBb5VyLHBdgJ6/Q1A9Y8KJQmlfm9jA==\",\"salt\":\"jHu2jUgOgVMsCT0zH8mxPA==\",\"additionalParameters\":{}}",
+            "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+          } ],
+          "disableableCredentialTypes" : [ ],
+          "requiredActions" : [ ],
+          "realmRoles" : [ "default-roles-backstage" ],
+          "notBefore" : 0,
+          "groups" : [ "/backstage-admins", "/fuse-qe-automation" ]
         }, {
           "id" : "dab509d1-7db2-4e64-962d-776f1ae0aec1",
           "createdTimestamp" : 1698261489537,

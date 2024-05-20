@@ -1,10 +1,16 @@
-clusterRouterDomain: example.cluster.com
+clusterRouterDomain: apps.developer-hub.fuse.integration-qe.com
 auth:
   sessionSecret: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
-  keycloakUrl: https://keycloak.example.com
+  keycloakUrl: https://keycloak-keycloak.apps.developer-hub.fuse.integration-qe.com
   keycloakRealm: backstage
   clientId: backstage
   clientSecret: my-secret
 git:
-  token: replaceme
-  org: my-org
+  token: gitaccesstoken
+  org: jboss-fuse-qe
+  clientId: githubclientid
+  secret:  githubsecret
+gitlab:
+  token: gitlabaccesstoken
+  clientId: gitlabclientid
+  secret: gitlabsecret

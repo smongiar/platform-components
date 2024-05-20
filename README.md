@@ -96,6 +96,7 @@ Groups:
 Users:
 
 - `backstage-admin`
+- `fuse-qe-automation`
 - `user-ops-1`
 - `user-ops-2`
 - `user-dev-1`

@@ -2,9 +2,14 @@
 clusterRouterDomain: example.cluster.com
 
 gitHost: https://github.com
-gitOrg: contract-first-idp
-gitRef: main
+gitOrg: smongiar
+gitRef: first-test
 gitToken: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+gitlabToken: XXXX
+githubClientId: XXXX
+gitlabClientId: XXXX
+githubSecret: XXXX
+gitlabSecret: XXXX
 
 authClientSecret: replaceme
 authSessionSecret: replaceme

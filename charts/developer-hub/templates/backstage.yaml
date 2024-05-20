@@ -12,6 +12,9 @@ spec:
     extraEnvs:
       secrets:
         - name: rhdh-secrets
+      envs:
+        - name: NODE_TLS_REJECT_UNAUTHORIZED
+          value: '0'
     replicas: 1
     route:
       enabled: true
