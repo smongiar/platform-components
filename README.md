@@ -8,8 +8,6 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
 
    `oc apply -k argocd/bootstrap/operator`
 
-   Note: You may need to repeat the above command depending on namespace creation timing.
-
 1. Once the OpenShift GitOps operator is installed, confgure the platform ArgoCD instance:
 
    `oc apply -k argocd/bootstrap/instance`
