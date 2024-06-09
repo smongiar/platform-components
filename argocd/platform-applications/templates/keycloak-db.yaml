@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak-db
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
+    path: charts/postgresql
+    targetRevision: "{{ .Values.gitRef }}"
+    helm:
+      parameters:
+        - name: "global.postgresql.auth.existingSecret"
+          value: "keycloak-db-credentials"
+        - name: "global.postgresql.auth.secretKeys.adminPasswordKey"
+          value: "password"
+        - name: "tls.certificatesSecret"
+          value: "keycloak-db-postgresql-tls"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keycloak
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m
