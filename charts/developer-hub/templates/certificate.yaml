@@ -1,16 +1,16 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: keycloak
+  name: backstage
 spec:
   dnsNames:
-    - keycloak-service
-    - keycloak-service.keycloak.svc.cluster.local
-    - "keycloak.{{ .Values.clusterRouterDomain }}"
+    - backstage-backstage
+    - backstage-backstage.developer-hub.svc.cluster.local
+    - "backstage-backstage.{{ .Values.clusterRouterDomain }}"
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
     name: global-issuer
-  secretName: keycloak-tls
+  secretName: backstage-tls
   usages:
     - server auth

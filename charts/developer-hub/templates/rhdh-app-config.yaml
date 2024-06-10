@@ -27,7 +27,7 @@ data:
           production:
             clientId: ${KEYCLOAK_CLIENT_ID}
             clientSecret: ${KEYCLOAK_CLIENT_SECRET}
-            metadataUrl: ${KEYCLOAK_BASE_URL}/auth/realms/${KEYCLOAK_REALM}/.well-known/openid-configuration
+            metadataUrl: ${KEYCLOAK_BASE_URL}/realms/${KEYCLOAK_REALM}/.well-known/openid-configuration
             prompt: auto
 
     integrations:
@@ -47,7 +47,7 @@ data:
       providers:
         keycloakOrg:
           production:
-            baseUrl: ${KEYCLOAK_BASE_URL}/auth
+            baseUrl: ${KEYCLOAK_BASE_URL}
             loginRealm: ${KEYCLOAK_REALM}
             realm: ${KEYCLOAK_REALM}
             clientId: ${KEYCLOAK_CLIENT_ID}

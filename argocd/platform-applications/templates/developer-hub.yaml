@@ -18,7 +18,7 @@ spec:
         - name: "auth.sessionSecret"
           value: "{{ .Values.authClientSecret }}"
         - name: "auth.keycloakUrl"
-          value: "https://keycloak-keycloak.{{ .Values.clusterRouterDomain }}"
+          value: "https://keycloak.{{ .Values.clusterRouterDomain }}"
         - name: "auth.keycloakRealm"
           value: backstage
         - name: "auth.clientId"
