@@ -11,12 +11,14 @@ spec:
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
-        - name: "global.postgresql.auth.existingSecret"
-          value: "keycloak-db-credentials"
-        - name: "global.postgresql.auth.secretKeys.adminPasswordKey"
-          value: "password"
-        - name: "tls.certificatesSecret"
-          value: "keycloak-db-postgresql-tls"
+        - name: global.postgresql.auth.existingSecret
+          value: keycloak-db-credentials
+        - name: global.postgresql.auth.secretKeys.adminPasswordKey
+          value: password
+        - name: global.postgresql.auth.database
+          value: keycloak
+        - name: tls.certificatesSecret
+          value: keycloak-db-postgresql-tls
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
