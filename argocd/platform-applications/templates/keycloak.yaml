@@ -15,8 +15,12 @@ spec:
       parameters:
         - name: clusterRouterDomain
           value: "{{ .Values.clusterRouterDomain }}"
-        - name: "keycloak.backstageClient.secret"
+        - name: keycloak.backstageClient.secret
           value: "{{ .Values.authClientSecret }}"
+        - name: keycloak.database.username
+          value: postgres
+        - name: keycloak.database.password
+          value: dbpw
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
