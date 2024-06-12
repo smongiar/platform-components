@@ -6,3 +6,6 @@ keycloak:
   backstageClient:
     id: backstage
     secret: my-secret
+  database:
+    username: postgres
+    password: my-database-password

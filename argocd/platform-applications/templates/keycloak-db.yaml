@@ -1,31 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: keycloak
+  name: keycloak-db
   namespace: openshift-gitops
-  annotations:
-    argocd.argoproj.io/sync-wave: "5"
 spec:
   project: default
   source:
     repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
-    path: charts/keycloak
+    path: charts/postgresql
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
-        - name: clusterRouterDomain
-          value: "{{ .Values.clusterRouterDomain }}"
-        - name: keycloak.backstageClient.secret
-          value: "{{ .Values.authClientSecret }}"
-        - name: keycloak.database.username
-          value: postgres
-        - name: keycloak.database.password
-          value: dbpw
+        - name: global.postgresql.auth.existingSecret
+          value: keycloak-db-credentials
+        - name: global.postgresql.auth.secretKeys.adminPasswordKey
+          value: password
+        - name: global.postgresql.auth.database
+          value: keycloak
+        - name: tls.certificatesSecret
+          value: keycloak-db-postgresql-tls
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
   syncPolicy:
-    automated: 
+    automated:
       prune: true
       selfHeal: true
     syncOptions:

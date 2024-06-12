@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: backstage
+spec:
+  dnsNames:
+    - backstage-backstage
+    - backstage-backstage.developer-hub.svc.cluster.local
+    - "backstage-backstage.{{ .Values.clusterRouterDomain }}"
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: global-issuer
+  secretName: backstage-tls
+  usages:
+    - server auth

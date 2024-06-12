@@ -10,8 +10,16 @@ spec:
       configMaps:
       - name: app-config-rhdh
     extraEnvs:
+      envs:
+        - name: NODE_EXTRA_CA_CERTS
+          value: /extraFiles/ca.crt
       secrets:
         - name: rhdh-secrets
+    extraFiles:
+      mountPath: extraFiles
+      secrets:
+        - name: backstage-tls
+          key: ca.crt
     replicas: 1
     route:
       enabled: true
