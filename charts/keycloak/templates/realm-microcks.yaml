@@ -42,6 +42,10 @@ spec:
     users:
     - username: user
       enabled: true
+      emailVerified: true
+      firstName: user
+      lastName: microcks
+      email: microcks-user@redhat.com
       credentials:
       - type: password
         value: microcks123
@@ -51,6 +55,10 @@ spec:
         - user
     - username: manager
       enabled: true
+      emailVerified: true
+      firstName: manager
+      lastName: microcks
+      email: microcks-manager@redhat.com
       credentials:
       - type: password
         value: microcks123
@@ -61,6 +69,10 @@ spec:
         - manager
     - username: admin
       enabled: true
+      emailVerified: true
+      firstName: admin
+      lastName: microcks
+      email: microcks-admin@redhat.com
       credentials:
       - type: password
         value: microcks123
