@@ -1,22 +1,24 @@
-apiVersion: keycloak.org/v1alpha1
 kind: Keycloak
+apiVersion: k8s.keycloak.org/v2alpha1
 metadata:
   name: keycloak
   labels:
     app: keycloak
+  namespace: keycloak
 spec:
   instances: 1
-  externalAccess:
-    enabled: True
-  profile: RHSSO
-  keycloakDeploymentSpec:
-    experimental:
-      env:
-        - name: SSO_IMPORT_FILE
-          value: /tmp/realms/realms.json
-      volumes:
-        items:
-          - configMaps:
-            - realm-import
-            mountPath: /tmp/realms
-            name: "realm-import"
+  hostname:
+    hostname: "keycloak.{{ .Values.clusterRouterDomain }}"
+  http:
+    tlsSecret: keycloak-tls
+  db:
+    vendor: postgres
+    host: keycloak-db-postgresql
+    port: 5432
+    database: keycloak
+    usernameSecret:
+      name: keycloak-db-credentials
+      key: username
+    passwordSecret:
+      name: keycloak-db-credentials
+      key: password
