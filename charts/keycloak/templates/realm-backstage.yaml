@@ -390,11 +390,8 @@ spec:
       lastName: backstage
       email: backstage-admin@redhat.com
       credentials:
-      - id: 4ad7e508-ebcd-46e4-8bb9-e45a457cb7d8
-        type: password
-        createdDate: 1698325499299
-        secretData: '{"value":"zuFzxuGzEMe/eyuPjMvwrxlrwuYvW+XKTSVKxQl4aGh7H5WVk9/7BcykQBb5VyLHBdgJ6/Q1A9Y8KJQmlfm9jA==","salt":"jHu2jUgOgVMsCT0zH8mxPA==","additionalParameters":{}}'
-        credentialData: '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}'
+      - type: password
+        value: letmein
       disableableCredentialTypes: []
       requiredActions: []
       realmRoles:
@@ -429,11 +426,8 @@ spec:
       lastName: user-dev-1
       email: user-dev-1@example.com
       credentials:
-      - id: 4332a662-bfa5-46f4-b869-2b86a8168fad
-        type: password
-        createdDate: 1698268895810
-        secretData: '{"value":"BmB+TH/2pkOsJlSLyH251DiGgfBVL09Jgh0CYtS9+pcrLrZT7VLTIyDwkb+NwRqmPkGNwUPEOADmqqJNju3fng==","salt":"WTOj4UVDMuakkmWnP+k2rw==","additionalParameters":{}}'
-        credentialData: '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}'
+      - type: password
+        value: letmein
       disableableCredentialTypes: []
       requiredActions: []
       notBefore: 0
@@ -449,11 +443,8 @@ spec:
       lastName: user-dev-2
       email: user-dev-2@example.com
       credentials:
-      - id: 47922e85-7622-4ab7-a111-e6308c475304
-        type: password
-        createdDate: 1698268906579
-        secretData: '{"value":"pQRbwwXcFg/5Bln5aCRGxESO8LbYYV8Bh+23QN+IRF0ii7ecY7pIE5ufxCNl9K7ahuX07o88H0uSJ0f5b3xwPw==","salt":"mL292eI5JEePr2icL+ZsRQ==","additionalParameters":{}}'
-        credentialData: '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}'
+      - type: password
+        value: letmein
       disableableCredentialTypes: []
       requiredActions: []
       notBefore: 0
@@ -469,11 +460,8 @@ spec:
       lastName: user-ops-1
       email: user-ops-1@example.com
       credentials:
-      - id: ecac8a9d-e177-4313-8169-472769899e17
-        type: password
-        createdDate: 1698268911582
-        secretData: '{"value":"OZDZplXVqyhST4arIZrFTWDkj/kiKLaxYS4XzCQP74bhA6zM25qmYhEsai1C1895ccqvgZrnXLxJvAIGggUIGg==","salt":"c9AIi3hkhNuzSVy5qCqF7A==","additionalParameters":{}}'
-        credentialData: '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}'
+      - type: password
+        value: letmein
       disableableCredentialTypes: []
       requiredActions: []
       notBefore: 0
@@ -489,11 +477,8 @@ spec:
       lastName: user-ops-2
       email: user-ops-2@example.com
       credentials:
-      - id: 2c830132-af04-47e7-8251-ba940dbac390
-        type: password
-        createdDate: 1698268906271
-        secretData: '{"value":"XFBslkswfObz+zJv/8LxDxQxlZDo4xa6sbW8azsXgIqZuTo64WK3u2U6YMZ2GpZ+2+scNKKWRFKUu2omhuvtmg==","salt":"eKEcNmKuAGF7VSbLFTJFYA==","additionalParameters":{}}'
-        credentialData: '{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}'
+      - type: password
+        value: letmein
       disableableCredentialTypes: []
       requiredActions: []
       notBefore: 0
