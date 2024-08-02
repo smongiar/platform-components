@@ -1,0 +1,13 @@
+apiVersion: registry.apicur.io/v1
+kind: ApicurioRegistry
+metadata:
+  name: apicurioregistry-sql
+spec:
+  configuration:
+    security:
+    persistence: "sql"
+    sql:
+      dataSource:
+        url: "jdbc:postgresql://apicurioregistry-db-postgresql.apicurio-registry.svc.cluster.local:5432/apicurioregistry"
+        userName: "postgres"
+        password: "dbpw"

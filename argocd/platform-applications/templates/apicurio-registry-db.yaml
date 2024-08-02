@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apicurioregistry-db
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
+    path: charts/postgresql
+    targetRevision: "{{ .Values.gitRef }}"
+    helm:
+      parameters:
+        - name: global.postgresql.auth.existingSecret
+          value: apicurioregistry-db-credentials
+        - name: global.postgresql.auth.secretKeys.adminPasswordKey
+          value: password
+        - name: global.postgresql.auth.database
+          value: apicurioregistry
+        - name: tls.certificatesSecret
+          value: apicurioregistry-db-postgresql-tls
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apicurio-registry
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m

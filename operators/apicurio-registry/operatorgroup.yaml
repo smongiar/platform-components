@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: ApicurioRegistry.v1.registry.apicur.io
+  name: apicurio-registry
+  namespace: apicurio-registry
+spec:
+  targetNamespaces:
+  - apicurio-registry
