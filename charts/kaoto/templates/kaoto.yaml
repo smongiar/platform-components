@@ -1,0 +1,6 @@
+apiVersion: designer.kaoto.io/v1alpha1
+kind: Kaoto
+metadata:
+  name: kaoto
+  namespace: kaoto
+spec: {}
