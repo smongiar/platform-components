@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/demo-systems.git"
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/demo-domain.git"
     path: namespaces
     targetRevision: main
   destination:
