@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kaoto
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
+    path: charts/kaoto
+    targetRevision: "{{ .Values.gitRef }}"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kaoto
+  syncPolicy: {}
+
