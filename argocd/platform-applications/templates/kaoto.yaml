@@ -12,5 +12,17 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: kaoto
-  syncPolicy: {}
-
+  syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m
