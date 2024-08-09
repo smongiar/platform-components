@@ -43,7 +43,7 @@ data:
         - allow: [Component, System, Group, Resource, Location, Template, API]
       locations:
         - type: url
-          target: https://github.com/contract-first-idp/software-templates/blob/main/template-index.yaml
+          target: https://github.com/{{ .Values.git.org }}/software-templates/blob/main/template-index.yaml
       providers:
         keycloakOrg:
           production:
