@@ -57,22 +57,12 @@ data:
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
         github:
-          systems:
-            organization: '{{ .Values.git.org }}' # string
-            catalogPath: '/systems/*.yaml' # string
+          entities:
+            organization: '{{ .Values.git.org }}'
+            catalogPath: '/catalog-info.yaml'
             filters:
-              branch: 'main' # string
-              repository: 'demo-systems' # Regex
-            schedule: # optional
-              frequency: { minutes: 1 }
-              timeout: { minutes: 1 }
-              initialDelay: { seconds: 15 }
-          systemEntities:
-            organization: '{{ .Values.git.org }}' # string
-            catalogPath: '/catalog-info.yaml' # string
-            filters:
-              branch: 'master' # string
-              repository: '.*' # Regex
+              branch: 'main'
+              repository: '.*'
             schedule: # optional
               frequency: { minutes: 1 }
               timeout: { minutes: 1 }
