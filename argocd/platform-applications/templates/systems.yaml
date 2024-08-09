@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/demo-systems.git"
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/domain-demo.git"
     path: argoapps
     targetRevision: main
   destination:
