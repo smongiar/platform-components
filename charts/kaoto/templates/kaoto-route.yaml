@@ -1,0 +1,26 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: kaoto-app
+  namespace: kaoto
+  labels:
+    app.kubernetes.io/component: designer
+    app.kubernetes.io/instance: kaoto
+    app.kubernetes.io/managed-by: kaoto-operator
+    app.kubernetes.io/name: kaoto
+    app.kubernetes.io/part-of: kaoto
+spec:
+  host: kaoto.{{ .Values.clusterRouterDomain }}
+  to:
+    kind: Service
+    name: kaoto
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: kaoto.{{ .Values.clusterRouterDomain }}
+      routerName: default
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.{{ .Values.clusterRouterDomain }}
