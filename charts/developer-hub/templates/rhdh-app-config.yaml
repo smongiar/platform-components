@@ -43,7 +43,7 @@ data:
         - allow: [Component, System, Group, Resource, Location, Template, API]
       locations:
         - type: url
-          target: https://github.com/contract-first-idp/software-templates/blob/main/template-index.yaml
+          target: https://github.com/{{ .Values.git.org }}/software-templates/blob/main/template-index.yaml
       providers:
         keycloakOrg:
           production:
@@ -57,22 +57,12 @@ data:
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
         github:
-          systems:
-            organization: '{{ .Values.git.org }}' # string
-            catalogPath: '/systems/*.yaml' # string
+          entities:
+            organization: '{{ .Values.git.org }}'
+            catalogPath: '/catalog-info.yaml'
             filters:
-              branch: 'main' # string
-              repository: 'demo-systems' # Regex
-            schedule: # optional
-              frequency: { minutes: 1 }
-              timeout: { minutes: 1 }
-              initialDelay: { seconds: 15 }
-          systemEntities:
-            organization: '{{ .Values.git.org }}' # string
-            catalogPath: '/catalog-info.yaml' # string
-            filters:
-              branch: 'master' # string
-              repository: '.*' # Regex
+              branch: 'main'
+              repository: '.*'
             schedule: # optional
               frequency: { minutes: 1 }
               timeout: { minutes: 1 }

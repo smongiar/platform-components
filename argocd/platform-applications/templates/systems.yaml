@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: systems
+  name: demo-domain
   namespace: openshift-gitops
 spec:
   project: default
   source:
-    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/demo-systems.git"
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/demo-domain.git"
     path: argoapps
     targetRevision: main
   destination:

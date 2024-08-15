@@ -18,9 +18,3 @@ spec:
   port:
     targetPort: http
   wildcardPolicy: None
-status:
-  ingress:
-    - host: kaoto.{{ .Values.clusterRouterDomain }}
-      routerName: default
-      wildcardPolicy: None
-      routerCanonicalHostname: router-default.{{ .Values.clusterRouterDomain }}
