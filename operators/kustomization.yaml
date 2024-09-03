@@ -5,6 +5,7 @@ resources:
   - apicurio-designer
   - cert-manager
   - developer-hub
+  - hawtio
   - kaoto
   - keycloak
   - microcks
