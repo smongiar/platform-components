@@ -16,4 +16,3 @@ spec:
       cpu: 200m
       memory: 32Mi
   type: Cluster
-  version: "1.12"
