@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "git@{{ .Values.gitHost }}:{{ .Values.gitOrg }}/{{ .Values.gitProject }}/platform-components"
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
     path: charts/hawtio
     targetRevision: "{{ .Values.gitRef }}"
   destination:
