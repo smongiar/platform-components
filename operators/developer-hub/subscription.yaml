@@ -6,7 +6,7 @@ metadata:
   name: rhdh
   namespace: rhdh-operator
 spec:
-  channel: fast-1.1
+  channel: fast-1.2
   installPlanApproval: Automatic
   name: rhdh
   source: redhat-operators
