@@ -18,9 +18,9 @@ spec:
         - name: keycloak.backstageClient.secret
           value: "{{ .Values.authClientSecret }}"
         - name: keycloak.database.username
-          value: postgres
+          value: "{{ .Values.dbUsername }}"
         - name: keycloak.database.password
-          value: dbpw
+          value: "{{ .Values.dbPassword }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak

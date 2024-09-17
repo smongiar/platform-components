@@ -9,5 +9,5 @@ spec:
     sql:
       dataSource:
         url: "jdbc:postgresql://apicurioregistry-db-postgresql.apicurio-registry.svc.cluster.local:5432/apicurioregistry"
-        userName: "postgres"
-        password: "dbpw"
+        userName: "{{ .Values.apicurioregistry.database.username }}"
+        password: "{{ .Values.apicurioregistry.database.password }}"

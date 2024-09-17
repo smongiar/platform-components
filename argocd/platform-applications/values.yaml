@@ -8,3 +8,6 @@ gitToken: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 authClientSecret: replaceme
 authSessionSecret: replaceme
+
+dbUsername: postgres
+dbPassword: dbpw

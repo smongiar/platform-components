@@ -11,4 +11,3 @@ spec:
   name: service-registry-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: service-registry-operator.v2.6.3
