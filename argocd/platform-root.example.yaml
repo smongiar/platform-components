@@ -25,6 +25,10 @@ spec:
           value: CjrBujp80h6lWt7PEesM4tklZaqTfPal
         - name: authSessionSecret
           value: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
+        - name: dbUsername
+          value: postgres
+        - name: dbPassword
+          value: dbpw
   destination:
     server: https://kubernetes.default.svc
     namespace: default

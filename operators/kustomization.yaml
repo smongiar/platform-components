@@ -10,3 +10,4 @@ resources:
   - keycloak
   - microcks
   - openshift-pipelines
+  - apicurio-registry

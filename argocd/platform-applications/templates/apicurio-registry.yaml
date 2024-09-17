@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: keycloak
+  name: apicurioregistry
   namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "5"
@@ -9,21 +9,19 @@ spec:
   project: default
   source:
     repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
-    path: charts/keycloak
+    path: charts/apicurio-registry
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
         - name: clusterRouterDomain
           value: "{{ .Values.clusterRouterDomain }}"
-        - name: keycloak.backstageClient.secret
-          value: "{{ .Values.authClientSecret }}"
-        - name: keycloak.database.username
+        - name: apicurioregistry.database.username
           value: "{{ .Values.dbUsername }}"
-        - name: keycloak.database.password
+        - name: apicurioregistry.database.password
           value: "{{ .Values.dbPassword }}"
   destination:
     server: https://kubernetes.default.svc
-    namespace: keycloak
+    namespace: apicurio-registry
   syncPolicy:
     automated: 
       prune: true

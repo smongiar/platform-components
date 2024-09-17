@@ -1,0 +1,5 @@
+clusterRouterDomain: apps.example.cluster.com
+apicurioregistry:
+  database:
+    username: postgres
+    password: my-database-password
