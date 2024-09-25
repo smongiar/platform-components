@@ -1,4 +1,6 @@
 clusterRouterDomain: example.cluster.com
+clusterApiDomain: api.example.cluster.com
+serviceAccountToken: replaceme
 auth:
   sessionSecret: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
   keycloakUrl: https://keycloak.example.com
