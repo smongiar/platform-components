@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - apicurio-designer
   - cert-manager
+  - dev-spaces
   - developer-hub
   - hawtio
   - kaoto

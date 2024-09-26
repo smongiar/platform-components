@@ -1,0 +1,15 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: github-oauth-config
+  namespace: devspaces
+  labels:
+    app.kubernetes.io/part-of: che.eclipse.org
+    app.kubernetes.io/component: oauth-scm-configuration
+  annotations:
+    che.eclipse.org/oauth-scm-server: github
+    che.eclipse.org/scm-server-endpoint: https://github.com/
+type: Opaque
+data: 
+  id: "{{ .Values.auth.eclipseClientId | b64enc }}"
+  secret: "{{ .Values.auth.eclipseClientSecret | b64enc }}"

@@ -1,0 +1,23 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: workspace-userdata-gitconfig-configmap
+  namespace: admin-devspaces
+  labels:
+    controller.devfile.io/mount-to-devworkspace: 'true'
+    controller.devfile.io/watch-configmap: 'true'
+  annotations:
+    controller.devfile.io/mount-as: subpath
+    controller.devfile.io/mount-path: /etc/
+data:
+  gitconfig: |
+    [filter "lfs"]
+      clean=git-lfs clean -- %f
+      smudge=git-lfs smudge -- %f
+      process=git-lfs filter-process
+      required=true
+    [user]
+      email = backstage-admin@redhat.com
+      name = admin
+    [http]
+      sslCAInfo=/public-certs/che-git-self-signed-cert.custom-git-ca-certificates.pem
