@@ -29,6 +29,8 @@ spec:
           value: postgres
         - name: dbPassword
           value: dbpw
+        - name: serviceAccountToken
+          value: eyXXXXXXX
   destination:
     server: https://kubernetes.default.svc
     namespace: default

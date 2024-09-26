@@ -15,6 +15,8 @@ spec:
       parameters:
         - name: "clusterRouterDomain"
           value: "{{ .Values.clusterRouterDomain }}"
+        - name: "clusterApiDomain"
+          value: {{ .Values.clusterRouterDomain | replace "apps" "api" }}
         - name: "auth.sessionSecret"
           value: "{{ .Values.authClientSecret }}"
         - name: "auth.keycloakUrl"
@@ -29,6 +31,8 @@ spec:
           value: "{{ .Values.gitOrg }}"
         - name: "git.token"
           value: "{{ .Values.gitToken }}"
+        - name: "serviceAccountToken"
+          value: "{{ .Values.serviceAccountToken }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: developer-hub
