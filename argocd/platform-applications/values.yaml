@@ -11,3 +11,7 @@ authSessionSecret: replaceme
 
 dbUsername: postgres
 dbPassword: dbpw
+
+eclipseClientId: eclipse-che-git-app-id
+eclipseClientSecret: eclipse-che-git-app-secret
+

@@ -31,6 +31,10 @@ spec:
           value: dbpw
         - name: serviceAccountToken
           value: eyXXXXXXX
+        - name: eclipseClientId
+          value: Ov23liriNWMGAfgIwbi4
+        - name: eclipseClientSecret
+          value: 15e9f92990cdb634db74f3f6e7dba7eddf724302
   destination:
     server: https://kubernetes.default.svc
     namespace: default

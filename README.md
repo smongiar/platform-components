@@ -31,13 +31,15 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
 Below are the critical configuration parameters that require user-provided values in `argocd/platform-root.yaml`.
 
 
-| Key | Description | Default Value | Notes |
-| --- | ----------- | ------------- | ----- |
-| `clusterRouterDomain` | wildcard domain for the OpenShift Router | `apps.example.cluster.com` | |
-| `gitHost` | GitHub service provider host | `https://github.com` | |
-| `gitOrg` | GitHub organization | `contract-first-idp` | e.g. your fork |
-| `gitRef` | Git branch, tag, or commit | `main` | e.g. your feature branch |
-| `gitToken` | Backstage GitHub authentication token | `ghp_REPLACEME` | Settings -> Developer Settings -> Personal Access Tokens |
+| Key                   | Description                                 | Default Value                           | Notes                                                    |
+|-----------------------|---------------------------------------------|-----------------------------------------|----------------------------------------------------------|
+| `clusterRouterDomain` | wildcard domain for the OpenShift Router    | `apps.example.cluster.com`              |                                                          |
+| `gitHost`             | GitHub service provider host                | `https://github.com`                    |                                                          |
+| `gitOrg`              | GitHub organization                         | `contract-first-idp`                    | e.g. your fork                                           |
+| `gitRef`              | Git branch, tag, or commit                  | `main`                                  | e.g. your feature branch                                 |
+| `gitToken`            | Backstage GitHub authentication token       | `ghp_REPLACEME`                         | Settings -> Developer Settings -> Personal Access Tokens |
+| `eclipseClientId`     | Github registered DevSpaces AppID           | `devSpaceAppID`                         | Settings -> Developer Settings -> OAuth Apps             |
+| `eclipseClientSecret` | Github registered DevSpaces AppSecret       | `devSpaceAppSecret`                     | Settings -> Developer Settings -> OAuth Apps             |   
 
 ## User Guide
 
@@ -60,3 +62,27 @@ Users:
 - `user-dev-2`
 
 All users have an intial password set to: `letmein` 
+
+### Setting config values for DevSpaces 
+
+We need to setup Eclipse-che for installation. Bases on the git provider repo used, we can get the current certificate:
+
+    `openssl s_client -connect github.com:443`
+
+So we can replace in _charts/dev-spaces/templates/self-signed-cert-cm.yaml_ under _custom-git-ca-certificates.pem_, the section between:
+
+    -----BEGIN CERTIFICATE-----
+
+    -----END CERTIFICATE-----
+
+Go to `Settings -> Applications -> Authorized Oauth Apps` in Github User Profile side for creating OAuth DevSpace Authorization, generating ClientID, ClientSecret.
+
+Let set the URL as:
+
+      https://devspaces.apps.cluster-{your-domain}/
+
+Let set the callback URL as:
+
+      https://devspaces.apps.cluster-{your-domain}/api/oauth/callback
+
+Set _eclipseClientId_, and _eclipseClientSecret_, in _platform-root.yaml_ properly, then re-apply again.

@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-spaces
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
+    path: charts/dev-spaces
+    targetRevision: "{{ .Values.gitRef }}"
+    helm:
+      parameters:
+        - name: "auth.eclipseClientId"
+          value: "{{ .Values.eclipseClientId }}"
+        - name: "auth.eclipseClientSecret"
+          value: "{{ .Values.eclipseClientSecret }}"
+        - name: "git.host"
+          value: "{{ .Values.gitHost }}"  
+        - name: "git.token"
+          value: "{{ .Values.gitToken }}"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m
