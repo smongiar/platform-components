@@ -21,20 +21,12 @@ spec:
           value: main
         - name: gitToken
           value: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        - name: authClientSecret
-          value: CjrBujp80h6lWt7PEesM4tklZaqTfPal
-        - name: authSessionSecret
-          value: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
-        - name: dbUsername
-          value: postgres
-        - name: dbPassword
-          value: dbpw
         - name: serviceAccountToken
           value: eyXXXXXXX
         - name: eclipseClientId
-          value: Ov23liriNWMGAfgIwbi4
+          value: xxxxxxxxxxxxxxxxxxxx
         - name: eclipseClientSecret
-          value: 15e9f92990cdb634db74f3f6e7dba7eddf724302
+          value: FF00000000000000000000000000000000000000
   destination:
     server: https://kubernetes.default.svc
     namespace: default

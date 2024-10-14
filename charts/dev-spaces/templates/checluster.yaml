@@ -35,8 +35,6 @@ spec:
       pvcStrategy: per-user
       perWorkspaceStrategyPvcConfig:
         claimSize: 10Gi
-    trustedCerts:
-      gitTrustedCertsConfigMapName: ca-certs-merged
   gitServices:
     github:
     - secretName: github-oauth-config
