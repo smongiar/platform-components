@@ -55,25 +55,33 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
 | `gitOrg` | GitHub organization | `contract-first-idp` | e.g. your fork |
 | `gitRef` | Git branch, tag, or commit | `main` | e.g. your feature branch |
 | `gitToken` | Backstage GitHub authentication token | `ghp_REPLACEME` | Settings -> Developer Settings -> Personal Access Tokens |
-| `serviceAccountToken` | Backstage k8s authentication token | `eyREPLACEME` | [See Backstage K8s Integration Docs](https://backstage.io/docs/features/kubernetes/configuration#clustersserviceaccounttoken-optional)
-| `eclipseClientId` | Github registered DevSpaces AppID | `devSpaceAppID` | Settings -> Developer Settings -> OAuth Apps |
-| `eclipseClientSecret` | Github registered DevSpaces AppSecret | `devSpaceAppSecret` | Settings -> Developer Settings -> OAuth Apps |
+| `serviceAccountToken` | Backstage k8s authentication token | `eyREPLACEME` | See [Backstage K8s Integration Docs](https://backstage.io/docs/features/kubernetes/configuration#clustersserviceaccounttoken-optional)
+| `eclipseClientId` | Github registered DevSpaces AppID | `devSpaceAppID` | See [Configuring a GitHub App for DevSpaces](#configuring-a-github-app-for-devspaces) |
+| `eclipseClientSecret` | Github registered DevSpaces AppSecret | `devSpaceAppSecret` | See [Configuring a GitHub App for DevSpaces](https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html/administration_guide/configuring-devspaces#configuring-oauth-2-for-github) |
 
-### Configuring a GitHub App for DevSpaces 
+## Platform Demo Guide
 
-Go to `Settings -> Applications -> Authorized Oauth Apps` in Github User Profile side for creating OAuth DevSpace Authorization, generating ClientID, ClientSecret.
+1. Browse to your Developer Hub instance URL which is managed by the Route in the `developer-hub` namespace.
 
-Set the URL as:
+2. A Keycloak Realm including some predenifed users and groups is preconfigured as part of the platform for demonstration of OIDC integration with an enterprise identity provider. Chose a persona to log in to the developer portal. (See [Developer Hub User Credentials](#developer-hub-user-credentials))
 
-      https://devspaces.apps.cluster-{your-domain}/
+3. Go to `Create...` on the side nagivation menu in the portal a view an inventory of templates. First select and execute the `System Template` which will create namespaces and a GitOps entrypoint for your new System.
 
-Set the callback URL as:
+4. Verify that a new GitHub repository was created representing the new System, and accept the pull request made to the `demo-domain` repository.
 
-      https://devspaces.apps.cluster-{your-domain}/api/oauth/callback
+   Note: The ArgoCD UI will eventually display a new Application, OpenShift will have new namespaces configured. You can speed the process up by refreshing the `demo-domain` application in the ArgoCD UI.
 
-## Platform User Guide
+5. Now browse again to `Create...` in the Developer Hub UI and this time select and execute `OpenAPI Specification` template. Make sure it is associated with the System you created previously.
 
-...
+6.  Verify that a new GitHub repository was created representing the new API and accept the pull request made to the System repostory created previously.
+
+7. Once ArgoCD reconciles the new API, there will be a new API Specification pipeline in your System's build namepace in OpenShift. Iterate on the scaffoled OpenAPI specification, commit your changes, and run the API Specification pipeline to publish your specification version.
+
+8. Now you can run any of the other component templates and select your existing API Entity in the scaffolder form. Various producer and consumer implementations are be bootstrapped by leveraging the API specification.
+
+9. Optionally, iterate on the component implementation and commit your changes to its Git repository as needed. 
+
+10. Run the component pipeline and test your component instance in its System's dev namepace.
 
 ### Developer Hub User Credentials
 
