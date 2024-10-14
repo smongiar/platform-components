@@ -19,5 +19,3 @@ data:
     [user]
       email = backstage-admin@redhat.com
       name = admin
-    [http]
-      sslCAInfo=/public-certs/che-git-self-signed-cert.custom-git-ca-certificates.pem
