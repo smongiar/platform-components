@@ -11,6 +11,7 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
    - [`software-templates`](https://github.com/contract-first-idp/software-templates) - Backstage scaffolder templates
    - [`developer-charts`](https://github.com/contract-first-idp/developer-charts) - shared default charts for scaffolder templates
    - [`demo-domain`](https://github.com/contract-first-idp/demo-domain) - root GitOps entrypoint for platform tenants
+   - [`spectral-rules`](https://github.com/contract-first-idp/spectral-rules) - a linter rule set configuration for API specs
 
 3. Replace every instance of the string `contract-first-idp` in your `software-templates` fork with your GitHub organization name in your fork and commit that change to the main branch
 
