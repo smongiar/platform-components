@@ -1,8 +1,6 @@
 apiVersion: org.eclipse.che/v2
 kind: CheCluster
 metadata:
-  annotations:
-    che.eclipse.org/checluster-defaults-cleanup: '{"containers.resources":"true","spec.components.dashboard.headerMessage":"true","spec.components.pluginRegistry.openVSXURL":"true","spec.devEnvironments.defaultComponents":"true","spec.devEnvironments.defaultEditor":"true","spec.devEnvironments.disableContainerBuildCapabilities":"true"}'
   name: devspaces
   namespace: devspaces
 spec:
@@ -19,6 +17,8 @@ spec:
       spec: {}
     metrics:
       enable: true
+    pluginRegistry:
+      openVSXURL: "https://open-vsx.org"
   containerRegistry: {}
   devEnvironments:
     containerBuildConfiguration:
