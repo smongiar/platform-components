@@ -1,0 +1,11 @@
+apiVersion: cache.jhouse.com/v1alpha1
+kind: NFSProvisioner
+metadata:
+  finalizers:
+    - nfsprovisioner.finalizers.jhouse.io
+  name: nfsprovisioner-sample
+  namespace: default
+spec:
+  hostPathDir: /home/core/nfs
+  nodeSelector:
+    app: nfs-provisioner

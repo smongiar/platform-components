@@ -12,3 +12,4 @@ resources:
   - microcks
   - openshift-pipelines
   - apicurio-registry
+  #- nfs-provisioner

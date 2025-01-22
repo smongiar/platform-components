@@ -37,15 +37,25 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
 
 2. Adjust the value of `source.repoUrl` in `argocd/platform-root.example.yaml` to point to your fork of the `platform-components` repository.
 
-3. Customize the override values in `argocd/platform-root.yaml`. (see [Platform Configuration Guide](#platform-configuration-guide)) 
+3. If your cluster is running on OpenStack platform, with cinder storage, you need to uncomment line #15 in `operators/kustomization.yaml` to make nfs-provisioner operator available for volume dynamic volume provisioning. 
+
+` 
+   resources: 
+   ....
+   - openshift-pipelines
+   - apicurio-registry
+   - nfs-provisioner
+` 
+
+4. Customize the override values in `argocd/platform-root.yaml`. (see [Platform Configuration Guide](#platform-configuration-guide)) 
 
    Note: Since you will potentially configure sensitive values in `argocd/platform-root.yaml` like a Git token, etc., it is included in `.gitignore` so sensitive values are not accidentally pushed to the remote.
 
-4. Provision the root ArgoCD Application:
+5. Provision the root ArgoCD Application:
 
    `oc apply -f argocd/platform-root.yaml -n openshift-gitops`
 
-5. In the ArgoCD UI, you will see a set of Applications begin to sync. Once all Applications are in a synced and healthy, the platform is installed.
+6. In the ArgoCD UI, you will see a set of Applications begin to sync. Once all Applications are in a synced and healthy, the platform is installed.
 
 ### Platform Configuration Guide
 

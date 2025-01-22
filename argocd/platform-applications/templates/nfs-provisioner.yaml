@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-provisioner
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: "{{ .Values.gitHost }}/{{ .Values.gitOrg }}/platform-components.git"
+    path: charts/nfs-provisioner
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - RespectIgnoreDifferences=true
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m
