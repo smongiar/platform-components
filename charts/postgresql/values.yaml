@@ -96,7 +96,7 @@ diagnosticMode:
 ## @param image.debug Specify if debug values should be set
 ##
 image:
-  registry: docker.io
+  registry: mirror.gcr.io
   repository: bitnami/postgresql
   tag: 16.0.0-debian-11-r13
   digest: ""
@@ -1297,7 +1297,7 @@ volumePermissions:
   ## @param volumePermissions.image.pullSecrets Init container volume-permissions image pull secrets
   ##
   image:
-    registry: docker.io
+    registry: mirror.gcr.io
     repository: bitnami/os-shell
     tag: 11-debian-11-r90
     digest: ""
@@ -1398,7 +1398,7 @@ metrics:
   ## @param metrics.image.pullSecrets Specify image pull secrets
   ##
   image:
-    registry: docker.io
+    registry: mirror.gcr.io
     repository: bitnami/postgres-exporter
     tag: 0.14.0-debian-11-r15
     digest: ""
