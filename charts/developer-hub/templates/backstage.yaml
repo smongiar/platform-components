@@ -19,6 +19,9 @@ spec:
         - name: rhdh-secrets
     extraFiles:
       mountPath: extraFiles
+      configMaps:
+        - name: demo-domain
+          key: catalog-info.yaml
       secrets:
         - name: backstage-tls
           key: ca.crt

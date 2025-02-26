@@ -74,10 +74,10 @@ data:
         entityFilename: catalog-info.yaml
         pullRequestBranchName: backstage-integration
       rules:
-        - allow: [Component, System, Group, Resource, Location, Template, API]
+        - allow: [Component, System, Group, Resource, Location, Template, API, Domain]
       locations:
-        - type: url
-          target: https://github.com/{{ .Values.git.org }}/software-templates/blob/main/template-index.yaml
+        - type: file
+          target: /extraFiles/catalog-info.yaml
       providers:
         keycloakOrg:
           production:
@@ -86,17 +86,37 @@ data:
             realm: ${KEYCLOAK_REALM}
             clientId: ${KEYCLOAK_CLIENT_ID}
             clientSecret: ${KEYCLOAK_CLIENT_SECRET}
+            filters:
+              kind:
+                - Group
+                - User
             schedule:
               frequency: { minutes: 1 }
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
         github:
-          entities:
+          templates:
+            organization: '{{ .Values.git.org }}'
+            catalogPath: '/templates/**/*template.yaml'
+            filters:
+              branch: 'main'
+              repository: 'software-templates'
+              kind:
+                - Template
+            schedule: # optional
+              frequency: { seconds: 15 }
+              timeout: { minutes: 1 }
+              initialDelay: { seconds: 15 }
+          userWorkloads:
             organization: '{{ .Values.git.org }}'
             catalogPath: '/catalog-info.yaml'
             filters:
               branch: 'main'
               repository: '.*'
+              kind:
+                - System
+                - Api
+                - Component
             schedule: # optional
               frequency: { minutes: 1 }
               timeout: { minutes: 1 }
