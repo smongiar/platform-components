@@ -13,10 +13,6 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
    - [`demo-domain`](https://github.com/contract-first-idp/demo-domain) - root GitOps entrypoint for platform tenants
    - [`spectral-rules`](https://github.com/contract-first-idp/spectral-rules) - a linter rule set configuration for API specs
 
-3. Replace every instance of the string `contract-first-idp` in your `software-templates` fork with your GitHub organization name in your fork and commit that change to the main branch
-
-4. Replace every instance of the string `apps.cluster-example.com` in your `software-templates` fork with your cluster's application router wildcard domain in your fork and commit that change to the main branch
-
 ## Bootstrapping OpenShift GitOps
 
 1. Provision OpenShift GitOps operator:
