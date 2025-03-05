@@ -10,4 +10,3 @@ spec:
   name: red-hat-hawtio-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: red-hat-hawtio-operator.v1.0.2
