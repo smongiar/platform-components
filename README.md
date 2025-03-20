@@ -52,7 +52,6 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
 | `gitOrg` | GitHub organization | `contract-first-idp` | e.g. your fork |
 | `gitRef` | Git branch, tag, or commit | `main` | e.g. your feature branch |
 | `gitToken` | Backstage GitHub authentication token | `ghp_REPLACEME` | Settings -> Developer Settings -> Personal Access Tokens |
-| `serviceAccountToken` | Backstage k8s authentication token | `eyREPLACEME` | See [Backstage K8s Integration Docs](https://backstage.io/docs/features/kubernetes/configuration#clustersserviceaccounttoken-optional)
 | `eclipseClientId` | Github registered DevSpaces AppID | `devSpaceAppID` | See [Configuring a GitHub App for DevSpaces]([#configuring-a-github-app-for-devspaces](https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html/administration_guide/configuring-devspaces#configuring-oauth-2-for-github)) |
 | `eclipseClientSecret` | Github registered DevSpaces AppSecret | `devSpaceAppSecret` | See [Configuring a GitHub App for DevSpaces](https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html/administration_guide/configuring-devspaces#configuring-oauth-2-for-github) |
 

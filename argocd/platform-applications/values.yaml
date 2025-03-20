@@ -1,6 +1,6 @@
 # See argocd/platform-root.yaml for overrides
 clusterRouterDomain: apps.example.cluster.com
-serviceAccountToken: eyREPLACEME
+
 
 gitHost: https://github.com
 gitOrg: contract-first-idp
@@ -15,3 +15,5 @@ authSessionSecret: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
 
 dbUsername: postgres
 dbPassword: dbpw
+
+serviceAccountToken: deprecated

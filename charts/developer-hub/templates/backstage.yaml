@@ -17,6 +17,8 @@ spec:
           value: '0'
       secrets:
         - name: rhdh-secrets
+        - name: backstage-cluster-viewer-token
+          key: token
     extraFiles:
       mountPath: extraFiles
       configMaps:

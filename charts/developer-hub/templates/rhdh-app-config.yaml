@@ -40,7 +40,7 @@ data:
         - clusters:
           - authProvider: serviceAccount
             name: ${K8S_CLUSTER_NAME}
-            serviceAccountToken: ${K8S_CLUSTER_TOKEN}
+            serviceAccountToken: ${token}
             url: ${K8S_CLUSTER_URL}
             skipTLSVerify: true
           type: config
