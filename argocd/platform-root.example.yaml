@@ -21,8 +21,6 @@ spec:
           value: main
         - name: gitToken
           value: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        - name: serviceAccountToken
-          value: eyXXXXXXX
         - name: eclipseClientId
           value: xxxxxxxxxxxxxxxxxxxx
         - name: eclipseClientSecret
