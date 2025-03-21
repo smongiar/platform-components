@@ -52,7 +52,7 @@ GitOps manifest for an Internal Developer Platform built on OpenShift
 | `gitOrg` | GitHub organization | Default value is `contract-first-idp` e.g. your fork |
 | `gitRef` | Git branch, tag, or commit | Default value is `main` e.g. your feature branch |
 | `gitToken` | Backstage GitHub authentication token |  Generate a "classic" GitHub personal access token <br/>Settings -> Developer Settings -> Personal Access Tokens |
-| `devSpacesClientId` `devSpacesClientSecret` | GitHub client ID and secret for Dev Spaces | See [Configuring a GitHub App for DevSpaces]([#configuring-a-github-app-for-devspaces](https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html/administration_guide/configuring-devspaces#configuring-oauth-2-for-github)) <br/>Reference callback URL: `https://devspaces.apps.example.cluster.com/api/oauth/callback` |
+| `devSpacesClientId` `devSpacesClientSecret` | GitHub client ID and secret for Dev Spaces | See [Configuring a GitHub App for DevSpaces](https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html/administration_guide/configuring-devspaces#configuring-oauth-2-for-github)) <br/>Reference callback URL: `https://devspaces.apps.example.cluster.com/api/oauth/callback` |
 
 
 ## Platform Demo Guide
