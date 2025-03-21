@@ -5,10 +5,10 @@ clusterRouterDomain: apps.example.cluster.com
 gitHost: https://github.com
 gitOrg: contract-first-idp
 gitRef: main
-gitToken: ghp_REPLACEME
+gitToken: replaceme
 
-eclipseClientId: eclipse-che-git-app-id
-eclipseClientSecret: eclipse-che-git-app-secret
+devSpacesClientId: replaceme
+devSpacesClientSecret: replaceme
 
 authClientSecret: CjrBujp80h6lWt7PEesM4tklZaqTfPal
 authSessionSecret: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
@@ -16,4 +16,7 @@ authSessionSecret: Q72XbDKY8IcNSNzAQjVwa3xmh4lfdvzG
 dbUsername: postgres
 dbPassword: dbpw
 
+# deprecated chart values
 serviceAccountToken: deprecated
+eclipseClientId: deprecated
+eclipseClientSecret: deprecated

@@ -1,7 +1,6 @@
-clusterRouterDomain: example.cluster.com
 auth:
-  eclipseClientId: devspaceAppID
-  eclipseClientSecret: devspaceClientSecret
+  devSpacesClientId: devspaceAppID
+  devSpacesClientSecret: devspaceClientSecret
 git:
   host: git-host
   token: replaceme

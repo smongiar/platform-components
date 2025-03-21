@@ -12,7 +12,7 @@ spec:
     helm:
       parameters:
         - name: clusterRouterDomain
-          value: apps.cluster-xxxxx.dynamic.redhatworkshops.io
+          value: apps.example.cluster.com
         - name: gitHost
           value: https://github.com
         - name: gitOrg
@@ -20,11 +20,11 @@ spec:
         - name: gitRef
           value: main
         - name: gitToken
-          value: ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        - name: eclipseClientId
-          value: xxxxxxxxxxxxxxxxxxxx
-        - name: eclipseClientSecret
-          value: FF00000000000000000000000000000000000000
+          value: <replace me>
+        - name: devSpacesClientId
+          value: <replace me>
+        - name: devSpacesClientSecret
+          value: <replace me>
   destination:
     server: https://kubernetes.default.svc
     namespace: default

@@ -11,10 +11,10 @@ spec:
     targetRevision: "{{ .Values.gitRef }}"
     helm:
       parameters:
-        - name: "auth.eclipseClientId"
-          value: "{{ .Values.eclipseClientId }}"
-        - name: "auth.eclipseClientSecret"
-          value: "{{ .Values.eclipseClientSecret }}"
+        - name: "auth.devSpacesClientId"
+          value: "{{ .Values.devSpacesClientId }}"
+        - name: "auth.devSpacesClientSecret"
+          value: "{{ .Values.devSpacesClientSecret }}"
         - name: "git.host"
           value: "{{ .Values.gitHost }}"  
         - name: "git.token"
