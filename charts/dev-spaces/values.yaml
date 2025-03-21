@@ -1,4 +1,3 @@
-clusterRouterDomain: example.cluster.com
 auth:
   devSpacesClientId: devspaceAppID
   devSpacesClientSecret: devspaceClientSecret
