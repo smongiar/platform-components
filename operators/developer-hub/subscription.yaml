@@ -6,9 +6,8 @@ metadata:
   name: rhdh
   namespace: rhdh-operator
 spec:
-  channel: fast-1.2
+  channel: fast-1.3
   installPlanApproval: Automatic
   name: rhdh
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: rhdh-operator.v1.2.6
